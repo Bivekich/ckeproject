@@ -8,6 +8,7 @@ import { Phone, CheckCircle2, AlertCircle } from 'lucide-react';
 import { formatPhoneNumber, validatePhoneNumber } from '@/lib/utils';
 import { sendTelegramNotification } from '@/lib/telegram';
 import ContactModal from './ContactModal';
+import { cn } from '@/lib/utils';
 
 const Hero = () => {
   const [phone, setPhone] = useState('');
@@ -47,7 +48,7 @@ const Hero = () => {
           'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
         );
       }
-    } catch (error) {
+    } catch {
       setError(
         'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
       );
@@ -134,7 +135,10 @@ const Hero = () => {
                   placeholder="+7 (999) 999-99-99"
                   value={phone}
                   onChange={handlePhoneChange}
-                  className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-blue-200 focus:border-white"
+                  className={cn(
+                    'pl-10 bg-white/10 border-white/20 text-white placeholder:text-blue-200 focus:border-white',
+                    error && 'border-red-300'
+                  )}
                   required
                   disabled={isLoading || isSubmitted}
                 />

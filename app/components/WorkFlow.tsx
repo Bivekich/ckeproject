@@ -94,17 +94,6 @@ const WorkFlow = () => {
     },
   };
 
-  const lineVariants = {
-    hidden: { width: 0 },
-    visible: {
-      width: '100%',
-      transition: {
-        duration: 0.8,
-        ease: 'easeInOut',
-      },
-    },
-  };
-
   return (
     <section ref={ref} className="py-20 bg-gray-50" id="workflow">
       <div className="container mx-auto px-4">

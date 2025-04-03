@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { formatPhoneNumber, validatePhoneNumber } from '@/lib/utils';
 import { sendTelegramNotification } from '@/lib/telegram';
+import { cn } from '@/lib/utils';
 
 const ContactForm = () => {
   const [phone, setPhone] = useState('');
@@ -47,7 +48,7 @@ const ContactForm = () => {
           'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
         );
       }
-    } catch (error) {
+    } catch {
       setError(
         'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
       );
@@ -184,7 +185,7 @@ const ContactForm = () => {
                         placeholder="+7 (999) 999-99-99"
                         value={phone}
                         onChange={handlePhoneChange}
-                        className="pl-10"
+                        className={cn('pl-10', error && 'border-red-500')}
                         required
                         disabled={isLoading || isSubmitted}
                       />
