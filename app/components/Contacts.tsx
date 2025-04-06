@@ -14,7 +14,7 @@ import {
 
 const cityContacts = {
   Москва: {
-    address: 'г. Москва, ул. Пресненская, д. 6, стр. 2',
+    address: 'г. Москва, ул. Космонавта Волкова, д. 29к1',
     phone: '+7 (916) 830-58-58',
     email: 'ckeproekt@yandex.ru',
     workHours: 'ПН-ПТ: 8:00 - 20:00',
@@ -223,7 +223,7 @@ const Contacts = ({ selectedCity }: ContactsProps) => {
                         Время работы
                       </h3>
                       <p className="text-gray-600">{cityData.workHours}</p>
-                      <p className="text-gray-600">Сб-Вс: выходной</p>
+                      <p className="text-gray-600">Сб-Вс: 8:00 - 18:00</p>
                     </div>
                   </motion.div>
                 </div>

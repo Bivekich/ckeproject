@@ -10,7 +10,11 @@ import { sendTelegramNotification } from '@/lib/telegram';
 import ContactModal from './ContactModal';
 import { cn } from '@/lib/utils';
 
-const Hero = () => {
+interface HeroProps {
+  selectedCity: 'Москва' | 'Чебоксары';
+}
+
+const Hero = ({ selectedCity }: HeroProps) => {
   const [phone, setPhone] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -93,6 +97,11 @@ const Hero = () => {
         />
       </div>
 
+      {/* Заглушка-предупреждение */}
+      <div className="absolute top-4 right-4 bg-yellow-600 text-white text-xs px-3 py-1 rounded z-10">
+        Нужна баннерная фотография для этого раздела
+      </div>
+
       <motion.div
         className="container mx-auto px-4 py-16 sm:py-20 relative"
         variants={containerVariants}
@@ -105,7 +114,8 @@ const Hero = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
             variants={itemVariants}
           >
-            Независимая строительно-техническая экспертиза в Москве и Чебоксарах
+            Независимая строительно-техническая экспертиза в{' '}
+            {selectedCity === 'Москва' ? 'Москве' : 'Чебоксарах'}
           </motion.h1>
 
           {/* Описание */}
@@ -186,16 +196,16 @@ const Hero = () => {
             variants={itemVariants}
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <p className="font-bold text-xl sm:text-2xl mb-2">9+ лет</p>
+              <p className="font-bold text-xl sm:text-2xl mb-2">11+ лет</p>
               <p className="text-blue-100">опыта в экспертизе</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <p className="font-bold text-xl sm:text-2xl mb-2">500+</p>
+              <p className="font-bold text-xl sm:text-2xl mb-2">1500+</p>
               <p className="text-blue-100">выполненных проектов</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <p className="font-bold text-xl sm:text-2xl mb-2">100%</p>
-              <p className="text-blue-100">гарантия качества</p>
+              <p className="text-blue-100">фиксированная цена без доплат</p>
             </div>
           </motion.div>
         </div>

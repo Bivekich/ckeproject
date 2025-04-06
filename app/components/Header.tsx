@@ -73,7 +73,7 @@ const Header = ({ selectedCity, onCityChange }: HeaderProps) => {
             >
               <Building className="h-6 w-6" />
               <div>
-                <span className="text-xl font-bold">ЦКЕ</span>
+                <span className="text-xl font-bold">ЦКЭ</span>
                 <span className="block text-sm font-normal text-gray-600">
                   Центр комплексных экспертиз
                 </span>

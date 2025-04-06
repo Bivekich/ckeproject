@@ -11,10 +11,12 @@ import {
   Building,
   FlaskConical,
   ArrowRight,
+  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ContactModal from './ContactModal';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const services = [
   {
@@ -29,6 +31,7 @@ export const services = [
       'Расчет стоимости восстановительных работ',
       'Составление экспертного заключения',
     ],
+    image: '/images/placeholders/services/flood-expertise.jpg',
   },
   {
     icon: Waves,
@@ -42,6 +45,7 @@ export const services = [
       'Оценка состояния коммуникаций',
       'Рекомендации по ремонту',
     ],
+    image: '/images/placeholders/services/sewerage-inspection.jpg',
   },
   {
     icon: Home,
@@ -55,6 +59,7 @@ export const services = [
       'Анализ микроклимата',
       'Подготовка документации',
     ],
+    image: '/images/placeholders/services/house-recognition.jpg',
   },
   {
     icon: CheckSquare,
@@ -68,6 +73,7 @@ export const services = [
       'Выявление дефектов',
       'Рекомендации по устранению',
     ],
+    image: '/images/placeholders/services/renovation-expertise.jpg',
   },
   {
     icon: Thermometer,
@@ -81,6 +87,7 @@ export const services = [
       'Выявление мостиков холода',
       'Рекомендации по утеплению',
     ],
+    image: '/images/placeholders/services/thermal-inspection.jpg',
   },
   {
     icon: Building,
@@ -94,6 +101,7 @@ export const services = [
       'Оценка материалов',
       'Выявление нарушений',
     ],
+    image: '/images/placeholders/services/construction-control.jpg',
   },
   {
     icon: FlaskConical,
@@ -107,6 +115,7 @@ export const services = [
       'Расчет площадей',
       'Составление технического паспорта',
     ],
+    image: '/images/placeholders/services/room-measurement.jpg',
   },
 ];
 
@@ -202,6 +211,26 @@ const Services = () => {
                       </ul>
                     </div>
                   </div>
+                  <div className="relative h-64">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <FileText className="w-10 h-10 text-white" />
+                      </motion.div>
+                    </motion.div>
+                  </div>
                 </motion.div>
               </Link>
             ))}
@@ -212,6 +241,11 @@ const Services = () => {
               Подберем оптимальное решение под ваши задачи.
               <br />
               Все консультации бесплатны.
+            </p>
+            <p className="text-gray-600 mb-6 text-sm italic">
+              Примечание: Для каждой услуги необходимы качественные тематические
+              фотографии. Пожалуйста, предоставьте соответствующие изображения
+              для замены заглушек.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button

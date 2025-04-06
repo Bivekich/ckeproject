@@ -86,7 +86,7 @@ const Footer = ({ selectedCity }: FooterProps) => {
               >
                 <Building className="h-6 w-6" />
                 <div>
-                  <h2 className="text-xl font-bold">ЦКЕ</h2>
+                  <h2 className="text-xl font-bold">ЦКЭ</h2>
                   <p className="text-sm text-gray-600">
                     Центр комплексных экспертиз
                   </p>
@@ -182,7 +182,7 @@ const Footer = ({ selectedCity }: FooterProps) => {
             className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500"
           >
             <div>
-              © {new Date().getFullYear()} ЦКЕ - Центр комплексных экспертиз.
+              © {new Date().getFullYear()} ЦКЭ - Центр комплексных экспертиз.
               Все права защищены
             </div>
             <motion.div whileHover={{ scale: 1.05 }}>

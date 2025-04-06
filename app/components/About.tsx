@@ -104,7 +104,7 @@ const About = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Более 9 лет на рынке
+                  Более 11 лет на рынке
                 </h3>
                 <p className="text-gray-600">
                   Многолетний опыт работы позволяет нам решать задачи любой
@@ -211,20 +211,20 @@ const About = () => {
           variants={containerVariants}
         >
           <motion.div className="text-center" variants={statsVariants}>
-            <div className="text-4xl font-bold text-blue-700 mb-2">9+</div>
+            <div className="text-4xl font-bold text-blue-700 mb-2">11+</div>
             <div className="text-gray-600">лет опыта</div>
           </motion.div>
           <motion.div className="text-center" variants={statsVariants}>
-            <div className="text-4xl font-bold text-blue-700 mb-2">500+</div>
+            <div className="text-4xl font-bold text-blue-700 mb-2">1500+</div>
             <div className="text-gray-600">проектов</div>
           </motion.div>
           <motion.div className="text-center" variants={statsVariants}>
-            <div className="text-4xl font-bold text-blue-700 mb-2">50+</div>
-            <div className="text-gray-600">экспертов</div>
+            <div className="text-4xl font-bold text-blue-700 mb-2">100%</div>
+            <div className="text-gray-600">бесплатная юр. консультация</div>
           </motion.div>
           <motion.div className="text-center" variants={statsVariants}>
-            <div className="text-4xl font-bold text-blue-700 mb-2">98%</div>
-            <div className="text-gray-600">довольных клиентов</div>
+            <div className="text-4xl font-bold text-blue-700 mb-2">0</div>
+            <div className="text-gray-600">скрытых услуг и доплат</div>
           </motion.div>
         </motion.div>
       </motion.div>

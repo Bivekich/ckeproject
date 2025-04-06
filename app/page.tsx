@@ -47,12 +47,12 @@ export default function Home() {
               onCityChange={setSelectedCity}
             />
             <main className="flex-1">
-              <Hero />
+              <Hero selectedCity={selectedCity} />
+              <Services />
               <About />
               <WhyUs />
               <WorkFlow />
               <Certificates />
-              <Services />
               <Contacts selectedCity={selectedCity} />
               <ContactForm />
             </main>
