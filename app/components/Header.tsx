@@ -80,16 +80,28 @@ const Header = ({ selectedCity, onCityChange }: HeaderProps) => {
               </div>
             </Link>
 
-            <button
-              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-gray-600" />
-              ) : (
-                <Menu className="h-6 w-6 text-gray-600" />
-              )}
-            </button>
+            <div className="flex items-center space-x-2">
+              <a
+                href={`tel:${cityData[selectedCity].phone}`}
+                className="flex items-center space-x-1 text-gray-600 hover:text-blue-700 lg:hidden"
+              >
+                <Phone className="h-4 w-4 text-blue-700" />
+                <span className="text-sm font-medium">
+                  {cityData[selectedCity].phone}
+                </span>
+              </a>
+
+              <button
+                className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <X className="h-6 w-6 text-gray-600" />
+                ) : (
+                  <Menu className="h-6 w-6 text-gray-600" />
+                )}
+              </button>
+            </div>
 
             <nav className="hidden lg:flex items-center space-x-6">
               {navigation.map((item) => (
@@ -186,14 +198,6 @@ const Header = ({ selectedCity, onCityChange }: HeaderProps) => {
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-
-                <a
-                  href={`tel:${cityData[selectedCity].phone}`}
-                  className="flex items-center space-x-2 text-gray-600 hover:text-blue-700 py-2"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span>{cityData[selectedCity].phone}</span>
-                </a>
 
                 <Button
                   className="w-full bg-blue-700 hover:bg-blue-800 text-white mt-4"
