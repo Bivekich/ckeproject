@@ -2,7 +2,13 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, AlertCircle, FileText } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  AlertCircle,
+  FileText,
+  Phone,
+} from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import ContactModal from '@/app/components/ContactModal';
@@ -79,6 +85,17 @@ export default function ServicePage({ params }: ServicePageProps) {
               </h1>
             </div>
             <p className="text-xl text-gray-600">{service.description}</p>
+
+            {service.slug === 'mold-inspection' && (
+              <div className="mt-6 p-5 bg-blue-50 rounded-lg text-gray-700">
+                Плесень в помещении — не просто неприятный налёт на стенах, а
+                тревожный сигнал о серьёзных нарушениях в микроклимате,
+                вентиляции или конструкции здания. Наша команда проводит
+                профессиональное обследование с целью выявления и устранения
+                причин появления плесени, чтобы вы могли вернуть безопасность и
+                комфорт в своё пространство.
+              </div>
+            )}
           </motion.div>
 
           {/* Основные моменты */}
@@ -98,6 +115,108 @@ export default function ServicePage({ params }: ServicePageProps) {
                   </div>
                 ))}
               </div>
+
+              {service.slug === 'mold-inspection' && (
+                <div className="mt-8 border-t pt-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    Что входит в услугу:
+                  </h3>
+                  <div className="grid gap-3">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Визуальный осмотр стен, потолков, углов, пола, оконных
+                        откосов
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Измерение влажности воздуха и строительных конструкций
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Проверка вентиляции (естественной и/или принудительной)
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Анализ температурных мостов (с применением тепловизора)
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Локализация источников протечек или конденсата
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Оценка герметичности окон и дверей
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Заключение эксперта с рекомендациями по устранению
+                        причин
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">
+                    Дополнительно:
+                  </h3>
+                  <div className="grid gap-3">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Возможность взять пробу плесени на лабораторный анализ
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Составление официального акта или технического отчёта
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">
+                    Где применимо:
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Частные квартиры и дома
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Новостройки и вторичный рынок
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Офисы, коммерческая недвижимость
+                      </span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="h-5 w-5 text-blue-700 flex-shrink-0 mt-1" />
+                      <span className="text-gray-600">
+                        Детские учреждения, школы, сады, медучреждения
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Процесс работы */}
@@ -209,6 +328,15 @@ export default function ServicePage({ params }: ServicePageProps) {
               Наши специалисты ответят на все ваши вопросы и помогут решить вашу
               задачу
             </p>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+              <a
+                href="tel:+79991234567"
+                className="flex items-center text-white hover:text-blue-100"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                <span className="text-xl">+7 (999) 123-45-67</span>
+              </a>
+            </div>
             <Button
               onClick={() => setIsModalOpen(true)}
               className="bg-white text-blue-700 hover:bg-blue-50"

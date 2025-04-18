@@ -97,10 +97,9 @@ const Hero = ({ selectedCity }: HeroProps) => {
         />
       </div>
 
-      {/* Заглушка-предупреждение */}
-      <div className="absolute top-4 right-4 bg-yellow-600 text-white text-xs px-3 py-1 rounded z-10">
-        Нужна баннерная фотография для этого раздела
-      </div>
+      {/* Декоративные элементы фона */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/20 to-blue-900/40"></div>
+      <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-blue-400/10 to-transparent"></div>
 
       <motion.div
         className="container mx-auto px-4 py-16 sm:py-20 relative"

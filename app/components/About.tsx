@@ -155,11 +155,13 @@ const About = () => {
             className="relative h-[400px] rounded-lg overflow-hidden shadow-xl"
             variants={imageVariants}
           >
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent z-10" />
             <Image
               src="/images/office.jpg"
               alt="Наш офис"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
         </div>

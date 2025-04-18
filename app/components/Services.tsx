@@ -90,16 +90,16 @@ export const services = [
     image: '/images/placeholders/services/thermal-inspection.jpg',
   },
   {
-    icon: Building,
-    title: 'Контроль строительных работ',
-    slug: 'construction-control',
+    icon: Thermometer,
+    title: 'Определение причины возникновения плесени',
+    slug: 'mold-inspection',
     description:
-      'Определение качества строительно-монтажных работ на всех этапах строительства.',
+      'Профессиональное обследование с целью выявления и устранения причин появления плесени.',
     details: [
-      'Проверка соответствия проекту',
-      'Контроль технологий',
-      'Оценка материалов',
-      'Выявление нарушений',
+      'Измерение влажности воздуха и конструкций',
+      'Проверка вентиляции',
+      'Взятие соскобов плесени для анализа',
+      'Рекомендации по устранению',
     ],
     image: '/images/placeholders/services/construction-control.jpg',
   },
@@ -211,17 +211,19 @@ const Services = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="relative h-64">
+                  <div className="relative h-64 mt-4 rounded-lg overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover"
+                      className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
-                      className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
+                      className="absolute inset-0 bg-blue-900/30 flex items-center justify-center z-20"
                     >
                       <motion.div
                         whileHover={{ scale: 1.2 }}
@@ -241,11 +243,6 @@ const Services = () => {
               Подберем оптимальное решение под ваши задачи.
               <br />
               Все консультации бесплатны.
-            </p>
-            <p className="text-gray-600 mb-6 text-sm italic">
-              Примечание: Для каждой услуги необходимы качественные тематические
-              фотографии. Пожалуйста, предоставьте соответствующие изображения
-              для замены заглушек.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button

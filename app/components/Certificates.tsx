@@ -118,17 +118,18 @@ const Certificates = () => {
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                 onClick={() => setSelectedCert(index)}
               >
-                <div className="relative h-64">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src={cert.image}
                     alt={cert.title}
                     fill
-                    className="object-cover"
+                    className="object-contain p-2"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
-                    className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
+                    className="absolute inset-0 bg-blue-600/10 flex items-center justify-center"
                   >
                     <motion.div
                       whileHover={{ scale: 1.2 }}
