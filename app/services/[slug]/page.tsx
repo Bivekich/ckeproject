@@ -15,6 +15,13 @@ import ContactModal from '@/app/components/ContactModal';
 import { services } from '@/app/components/Services';
 import { use } from 'react';
 
+// Импортируем данные о городах, чтобы использовать телефоны
+const cityData = {
+  Москва: {
+    phone: '+7 (916) 830-58-58',
+  },
+} as const;
+
 interface ServicePageProps {
   params: Promise<{
     slug: string;
@@ -330,11 +337,11 @@ export default function ServicePage({ params }: ServicePageProps) {
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
               <a
-                href="tel:+79991234567"
+                href={`tel:${cityData.Москва.phone}`}
                 className="flex items-center text-white hover:text-blue-100"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                <span className="text-xl">+7 (999) 123-45-67</span>
+                <span className="text-xl">{cityData.Москва.phone}</span>
               </a>
             </div>
             <Button
