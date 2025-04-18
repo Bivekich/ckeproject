@@ -8,7 +8,6 @@ import {
   Waves,
   CheckSquare,
   Thermometer,
-  Building,
   FlaskConical,
   ArrowRight,
   FileText,
