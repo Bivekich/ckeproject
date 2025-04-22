@@ -22,12 +22,12 @@ const legalLinks = [
 
 const cityContacts = {
   Москва: {
-    address: 'г. Москва, ул. Пресненская, д. 6, стр. 2',
+    address: 'г. Москва, ул. Космонавта Волкова, д. 29к1',
     phone: '+7 (916) 830-58-58',
     email: 'ckeproekt@yandex.ru',
   },
   Чебоксары: {
-    address: 'г. Чебоксары, пр. Тракторостроителей, д. 11',
+    address: 'г. Чебоксары, ул. Зои Яковлевой, д. 54',
     phone: '+7 (916) 830-58-58',
     email: 'ckeproekt@yandex.ru',
   },

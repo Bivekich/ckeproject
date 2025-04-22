@@ -178,9 +178,9 @@ const Services = () => {
                     scale: 1.02,
                     transition: { duration: 0.2 },
                   }}
-                  className="group bg-gray-50 rounded-xl p-6 hover:bg-blue-700 transition-all duration-300 h-full"
+                  className="group bg-gray-50 rounded-xl p-6 hover:bg-blue-700 transition-all duration-300 h-full flex flex-col"
                 >
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-4 mb-4">
                     <div className="flex-shrink-0">
                       <motion.div
                         whileHover={{ rotate: 360 }}
@@ -191,26 +191,28 @@ const Services = () => {
                       </motion.div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white mb-2">
+                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white mb-2 line-clamp-2 h-14">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 group-hover:text-blue-100 mb-4">
+                      <p className="text-gray-600 group-hover:text-blue-100 mb-4 line-clamp-3 h-18">
                         {service.description}
                       </p>
-                      <ul className="space-y-2">
-                        {service.details.map((detail, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-center text-gray-600 group-hover:text-blue-100"
-                          >
-                            <ArrowRight className="h-4 w-4 mr-2 flex-shrink-0" />
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
-                  <div className="relative h-64 mt-4 rounded-lg overflow-hidden">
+
+                  <ul className="space-y-2 mb-4">
+                    {service.details.map((detail, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start text-gray-600 group-hover:text-blue-100"
+                      >
+                        <ArrowRight className="h-4 w-4 mr-2 flex-shrink-0 mt-1" />
+                        <span className="line-clamp-1">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="relative h-48 mt-auto rounded-lg overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
                     <Image
                       src={service.image}

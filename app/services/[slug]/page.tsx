@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -32,6 +32,24 @@ export default function ServicePage({ params }: ServicePageProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { slug } = use(params);
   const service = services.find((s) => s.slug === slug);
+
+  // Добавляем динамический заголовок и описание для SEO
+  useEffect(() => {
+    if (service) {
+      document.title = `${service.title} | СКЭ Проект`;
+      const metaDescription = document.querySelector(
+        'meta[name="description"]'
+      );
+      if (metaDescription) {
+        metaDescription.setAttribute('content', service.description);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = 'description';
+        meta.content = service.description;
+        document.head.appendChild(meta);
+      }
+    }
+  }, [service]);
 
   if (!service) {
     return <div>Услуга не найдена</div>;

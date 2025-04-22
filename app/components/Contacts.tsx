@@ -7,7 +7,6 @@ import {
   Mail,
   Clock,
   MapPin,
-  Building,
   MessagesSquare,
   FileText,
 } from 'lucide-react';
@@ -22,7 +21,7 @@ const cityContacts = {
     coordinates: [37.539042, 55.74733],
   },
   Чебоксары: {
-    address: 'г. Чебоксары, пр. Тракторостроителей, д. 11',
+    address: 'г. Чебоксары, ул. Зои Яковлевой, д. 54',
     phone: '+7 (916) 830-58-58',
     email: 'ckeproekt@yandex.ru',
     workHours: 'ПН-ПТ: 8:00 - 20:00',
@@ -41,11 +40,6 @@ const features = [
     icon: FileText,
     title: 'Документы онлайн',
     description: 'Возможность получить документы в электронном виде',
-  },
-  {
-    icon: Building,
-    title: 'Удобное расположение',
-    description: 'Офис в центре города с удобной транспортной доступностью',
   },
 ];
 
@@ -228,46 +222,46 @@ const Contacts = ({ selectedCity }: ContactsProps) => {
                   </motion.div>
                 </div>
               </motion.div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-white rounded-xl p-6 shadow-lg text-center"
-                  >
-                    <motion.div
-                      className="mb-4 flex justify-center"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                        <feature.icon className="h-6 w-6 text-blue-700" />
-                      </div>
-                    </motion.div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      {feature.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
 
-            <motion.div
-              variants={mapVariants}
-              className="bg-white rounded-xl shadow-lg overflow-hidden h-[600px]"
-            >
-              <iframe
-                src={`https://yandex.ru/map-widget/v1/?ll=${cityData.coordinates[0]},${cityData.coordinates[1]}&z=16&mode=search&whatshere[point]=${cityData.coordinates[0]},${cityData.coordinates[1]}&whatshere[zoom]=16`}
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                title="Карта с местоположением офиса"
-              />
+            <motion.div variants={itemVariants} className="space-y-8">
+              <motion.div
+                variants={mapVariants}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                    Как с нами связаться
+                  </h3>
+
+                  <div className="grid grid-cols-1 gap-6 mt-6">
+                    {features.map((feature, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-start gap-4"
+                      >
+                        <motion.div
+                          className="flex-shrink-0"
+                          whileHover={{ rotate: 360 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                            <feature.icon className="h-6 w-6 text-blue-700" />
+                          </div>
+                        </motion.div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                            {feature.title}
+                          </h3>
+                          <p className="text-gray-600">{feature.description}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
