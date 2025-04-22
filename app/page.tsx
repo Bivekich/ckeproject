@@ -13,12 +13,35 @@ import Contacts from './components/Contacts';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import CitySelectModal from './components/CitySelectModal';
 
 export default function Home() {
   const [selectedCity, setSelectedCity] = useState<'Москва' | 'Чебоксары'>(
     'Москва'
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [isCityModalOpen, setIsCityModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Проверяем, выбирал ли пользователь город ранее
+    const savedCity = localStorage.getItem('selectedCity');
+    if (savedCity) {
+      setSelectedCity(savedCity as 'Москва' | 'Чебоксары');
+    } else {
+      // Если город не выбран, показываем модальное окно после загрузки
+      // Устанавливаем таймер, чтобы сначала загрузка прошла, а потом показалось модальное окно
+      const timer = setTimeout(() => {
+        setIsCityModalOpen(true);
+      }, 2300); // Чуть больше времени, чем таймер загрузки
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  // Сохраняем выбор города в localStorage
+  const handleCityChange = (city: 'Москва' | 'Чебоксары') => {
+    setSelectedCity(city);
+    localStorage.setItem('selectedCity', city);
+  };
 
   useEffect(() => {
     // Имитация загрузки ресурсов
@@ -44,7 +67,7 @@ export default function Home() {
           >
             <Header
               selectedCity={selectedCity}
-              onCityChange={setSelectedCity}
+              onCityChange={handleCityChange}
             />
             <main className="flex-1">
               <Hero selectedCity={selectedCity} />
@@ -60,6 +83,13 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <CitySelectModal
+        isOpen={isCityModalOpen}
+        onClose={() => setIsCityModalOpen(false)}
+        onSelectCity={handleCityChange}
+        currentCity={selectedCity}
+      />
     </>
   );
 }
