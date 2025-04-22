@@ -36,7 +36,7 @@ export default function ServicePage({ params }: ServicePageProps) {
   // Добавляем динамический заголовок и описание для SEO
   useEffect(() => {
     if (service) {
-      document.title = `${service.title} | СКЭ Проект`;
+      document.title = `${service.title} | ЦКЭ Проект`;
       const metaDescription = document.querySelector(
         'meta[name="description"]'
       );
